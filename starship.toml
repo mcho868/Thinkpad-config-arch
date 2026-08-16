@@ -1,0 +1,80 @@
+# Minimal Arch-neon prompt for the navy Ghostty theme.
+format = """$os\
+$directory\
+$python\
+$git_branch\
+$git_status\
+$fill\
+$time
+$character"""
+
+add_newline = true
+palette = "arch_neon"
+
+[palettes.arch_neon]
+arch_blue = "#1793d1"
+neon_cyan = "#75f1fa"
+neon_green = "#42ff9f"
+soft_text = "#cdd6f4"
+muted = "#6c7086"
+warning = "#f9e2af"
+error = "#f38ba8"
+
+[os]
+disabled = false
+style = "bold arch_blue"
+format = "[$symbol]($style)"
+
+[os.symbols]
+Arch = "󰣇 "
+
+[directory]
+style = "bold neon_cyan"
+format = "[$path]($style)[$read_only]($read_only_style)"
+home_symbol = "~"
+read_only = " 󰌾"
+read_only_style = "bold warning"
+# Always show the complete current path.
+truncation_length = 0
+truncate_to_repo = false
+
+[python]
+# Show only the active virtual environment name, not the Python version.
+format = " [ ($virtualenv)](bold arch_blue)"
+detect_extensions = []
+detect_files = []
+detect_folders = []
+
+[git_branch]
+symbol = "  "
+style = "bold neon_green"
+format = "[$symbol$branch(:$remote_branch)]($style)"
+
+[git_status]
+style = "bold warning"
+format = "([$all_status$ahead_behind]($style))"
+conflicted = " ="
+ahead = " ⇡${count}"
+behind = " ⇣${count}"
+diverged = " ⇕⇡${ahead_count}⇣${behind_count}"
+untracked = " ?${count}"
+stashed = " *${count}"
+modified = " !${count}"
+staged = " +${count}"
+renamed = " »${count}"
+deleted = " ✘${count}"
+
+[fill]
+symbol = "· "
+style = "bold neon_cyan"
+
+[time]
+disabled = false
+time_format = "%H:%M"
+style = "bold neon_green"
+format = " [$time]($style)"
+
+[character]
+success_symbol = "[❯](bold neon_green)"
+error_symbol = "[❯](bold error)"
+vimcmd_symbol = "[❮](bold arch_blue)"

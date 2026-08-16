@@ -1,0 +1,30 @@
+# Terminal clipboard shortcuts. Ctrl+C remains available to interrupt commands.
+keybind = ctrl+shift+c=copy_to_clipboard:mixed
+keybind = ctrl+shift+v=paste_from_clipboard
+keybind = ctrl+insert=copy_to_clipboard:mixed
+keybind = shift+insert=paste_from_clipboard
+
+# Selecting text with the mouse also copies it.
+copy-on-select = true
+
+# Arch-inspired dark navy appearance.
+theme = Catppuccin Mocha
+font-family = JetBrainsMono Nerd Font
+font-size = 12
+
+background = #0b1220
+foreground = #cdd6f4
+cursor-color = #1793d1
+cursor-text = #0b1220
+selection-background = #164e73
+selection-foreground = #f4f8ff
+
+# Subtle transparency while keeping text easy to read.
+background-opacity = 0.92
+background-blur = true
+
+# Give terminal content a little breathing room.
+window-padding-x = 10
+window-padding-y = 8
+window-padding-balance = true
+window-theme = dark

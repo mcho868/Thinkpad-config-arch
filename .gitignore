@@ -1,0 +1,78 @@
+# User/application state and browser profiles. These contain cookies, login
+# sessions, local storage, history, and other machine-specific data.
+google-chrome/
+google-chrome-headless/
+chromium/
+discord/
+Code/
+icloud-for-linux/
+mozilla/
+obsidian/
+BraveSoftware/
+microsoft-edge/
+opera/
+vivaldi/
+libreoffice/
+
+# Runtime state, telemetry, and generated application data.
+dconf/user
+pulse/cookie
+session/
+ibus/bus/
+go/telemetry/
+turborepo/telemetry.json
+opencode/node_modules/
+opencode/opencode.jsonc
+nextjs-nodejs/config.json
+org.keshavnrj.ubuntu/
+hypr/backups/
+hypr/rofi-themes-collection/
+nvim/.git.template-backup/
+zsh/zsh-autosuggestions/
+fcitx5/conf/cached_layouts
+
+# Do not vendor nested repositories into the dotfiles repository.
+**/.git/
+
+# Common generated state if it appears under a config we keep.
+**/Cache/
+**/Cache2/
+**/Code Cache/
+**/GPUCache/
+**/WebStorage/
+**/Service Worker/
+**/Session Storage/
+**/Local Storage/
+**/IndexedDB/
+**/Safe Browsing/
+**/component_crx_cache/
+**/Crashpad/
+**/Shared Dictionary/
+**/DawnGraphiteCache/
+**/DawnWebGPUCache/
+**/Sessions/
+**/Cookies*
+**/History*
+**/Login Data*
+**/Trust Tokens*
+
+# Generic secrets and transient files.
+.env
+.env.*
+**/.env
+**/.env.*
+**/*credentials*
+**/*secrets*
+**/*password*
+**/*.pem
+**/*.key
+**/*.p12
+**/*.pfx
+**/*.log
+**/*.sqlite
+**/*.sqlite-*
+**/*.ldb
+**/*.lock
+**/*.pma
+**/*.swp
+.DS_Store

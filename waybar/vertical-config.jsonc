@@ -1,0 +1,108 @@
+{
+  "include": ["/home/rbdd/.config/waybar/config.jsonc"],
+  "position": "left",
+  "width": 44,
+  "height": 0,
+  "spacing": 3,
+  "modules-left": [
+    "network",
+    "custom/vertical-clock",
+    "custom/idle-mode",
+    "custom/hyprsunset",
+    "custom/battery",
+    "bluetooth",
+    "pulseaudio",
+    "memory",
+    "cpu",
+    "custom/cpu-temp-average",
+    "custom/fan",
+    "custom/language",
+    "custom/notifications"
+  ],
+  "modules-center": [],
+  "modules-right": ["hyprland/workspaces"],
+  "network": {
+    "format": "",
+    "format-wifi": "\n{signalStrength}%",
+    "format-ethernet": "",
+    "format-disconnected": "󰤭",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ifname} via {gwaddr}",
+    "tooltip-format-ethernet": "{ifname} via {gwaddr}",
+    "tooltip-format-disconnected": "Network disconnected",
+    "on-click": "exec nmrs"
+  },
+  "bluetooth": {
+    "format": "\n—",
+    "format-disabled": "\n—",
+    "format-connected": "\n{num_connections}",
+    "tooltip-format": "{controller_alias}\n{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\n{device_enumerate}",
+    "on-click": "exec ghostty --title=bluetui -e bluetui"
+  },
+  "pulseaudio": {
+    "format": "{icon}\n{volume}%",
+    "format-muted": "\n—",
+    "max-volume": 135,
+    "format-icons": {
+      "default": ["", ""]
+    },
+    "on-click": "pavucontrol"
+  },
+  "cpu": {
+    "interval": 10,
+    "format": "\n{}%",
+    "max-length": 10,
+    "on-click": "exec ghostty --title=btop -e btop"
+  },
+  "memory": {
+    "interval": 30,
+    "format": "\n{percentage}%",
+    "tooltip-format": "{used:0.1f}G/{total:0.1f}G used",
+    "on-click": "exec ghostty --title=htop -e htop"
+  },
+  "custom/hyprsunset": {
+    "exec": "WAYBAR_VERTICAL=1 ~/.config/waybar/custom_modules/hyprsunset/status.sh",
+    "interval": 30,
+    "return-type": "json",
+    "tooltip": true
+  },
+  "custom/idle-mode": {
+    "exec": "WAYBAR_VERTICAL=1 ~/.config/waybar/custom_modules/idle-mode/status.sh",
+    "interval": 3600,
+    "signal": 10,
+    "return-type": "json",
+    "tooltip": true,
+    "on-click": "exec ~/.config/waybar/custom_modules/idle-mode/idle-mode.sh next",
+    "on-click-right": "exec ~/.config/waybar/custom_modules/idle-mode/idle-mode.sh menu"
+  },
+  "custom/battery": {
+    "exec": "WAYBAR_VERTICAL=1 ~/.config/waybar/custom_modules/battery/battery-status.sh",
+    "interval": 30,
+    "return-type": "json",
+    "tooltip": true,
+    "on-click": "exec ~/.config/waybar/custom_modules/battery/battery-menu.sh"
+  },
+  "custom/fan": {
+    "exec": "WAYBAR_VERTICAL=1 ~/.config/waybar/custom_modules/fan/fan-status.sh",
+    "interval": 5,
+    "return-type": "json",
+    "tooltip": true,
+    "on-click": "exec ~/.config/waybar/custom_modules/fan/fan-menu.sh"
+  },
+  "custom/cpu-temp-average": {
+    "exec": "WAYBAR_VERTICAL=1 ~/.config/waybar/custom_modules/cpu-temp-average.sh",
+    "interval": 5,
+    "return-type": "json",
+    "tooltip": true
+  },
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "sort-by-number": true
+  },
+  "custom/vertical-clock": {
+    "exec": "~/.config/waybar/custom_modules/vertical-clock/status.sh",
+    "interval": 1,
+    "return-type": "json",
+    "tooltip": true
+  }
+}

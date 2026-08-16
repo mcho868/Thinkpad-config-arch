@@ -1,0 +1,39 @@
+@define-color highlight rgba(117, 241, 250, 1);
+@define-color dark-9 rgba(24, 24, 27, 1);
+@define-color dark-8 rgba(39, 39, 42, 1);
+
+window {
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 13px;
+  background-color: @dark-9;
+  border: 1px solid @dark-8;
+  border-radius: 10px;
+}
+
+#input {
+  margin: 6px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: @dark-8;
+  color: white;
+}
+
+#inner-box {
+  margin: 4px;
+}
+
+#entry {
+  padding: 6px 8px;
+  border-radius: 6px;
+  color: white;
+}
+
+#entry:selected {
+  background: @highlight;
+  color: black;
+  font-weight: 700;
+}
+
+#text {
+  color: inherit;
+}

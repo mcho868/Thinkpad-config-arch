@@ -1,0 +1,198 @@
+{
+  "layer": "top",
+  "height": 26,
+  "spacing": 0,
+  "modules-left": ["hyprland/workspaces", "group/media"],
+  "modules-center": ["custom/center-status"],
+  "modules-right": [
+    "custom/notifications",
+    "custom/idle-mode",
+    "custom/hyprsunset",
+    "custom/language",
+    "custom/fan",
+    "cpu",
+    "custom/cpu-temp-average",
+    "memory",
+    "pulseaudio",
+    "bluetooth",
+    "custom/battery",
+    "network"
+  ],
+  "custom/center-status": {
+    "exec": "~/.config/waybar/custom_modules/screen-recording/center-status.sh",
+    "interval": 1,
+    "signal": 8,
+    "return-type": "json",
+    "tooltip": true,
+    "on-click": "~/.config/waybar/custom_modules/screen-recording/center-click.sh"
+  },
+  "custom/notifications": {
+    "exec": "~/.config/waybar/custom_modules/notifications/status.sh",
+    "interval": 5,
+    "signal": 9,
+    "return-type": "json",
+    "tooltip": true,
+    "on-click": "exec ~/.config/waybar/custom_modules/notifications/toggle.sh"
+  },
+  "custom/idle-mode": {
+    "exec": "~/.config/waybar/custom_modules/idle-mode/status.sh",
+    "interval": 3600,
+    "signal": 10,
+    "return-type": "json",
+    "tooltip": true,
+    "on-click": "exec ~/.config/waybar/custom_modules/idle-mode/idle-mode.sh next",
+    "on-click-right": "exec ~/.config/waybar/custom_modules/idle-mode/idle-mode.sh menu"
+  },
+  "custom/hyprsunset": {
+    "exec": "~/.config/waybar/custom_modules/hyprsunset/status.sh",
+    "interval": 30,
+    "return-type": "json",
+    "tooltip": true
+  },
+  "hyprland/window": {
+    "max-length": 50
+  },
+  "battery": {
+    "interval": 60,
+    "format": "{capacity}% {icon}",
+    "tooltip-format-charging": "Charging – {time} until full\n{power:.1f} W\nBattery cycles: {cycles}\nMaximum health: {health}%",
+    "tooltip-format-discharging": "{time} remaining\n{power:.1f} W\nBattery cycles: {cycles}\nMaximum health: {health}%",
+    "on-click": "exec ~/.config/waybar/custom_modules/battery/battery-menu.sh",
+    "format-icons": {
+      "default": [
+        "󰂎",
+        "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+      ],
+      "charging": [
+        "󰢟",
+        "󰢜",
+        "󰂆",
+        "󰂇",
+        "󰂈",
+        "󰢝",
+        "󰂉",
+        "󰢞",
+        "󰂊",
+        "󰂋",
+        "󰂅"
+      ]
+    }
+  },
+  "custom/battery": {
+    "exec": "~/.config/waybar/custom_modules/battery/battery-status.sh",
+    "interval": 30,
+    "return-type": "json",
+    "tooltip": true,
+    "on-click": "exec ~/.config/waybar/custom_modules/battery/battery-menu.sh"
+  },
+  "custom/fan": {
+    "exec": "~/.config/waybar/custom_modules/fan/fan-status.sh",
+    "interval": 5,
+    "return-type": "json",
+    "tooltip": true,
+    "on-click": "exec ~/.config/waybar/custom_modules/fan/fan-menu.sh"
+  },
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "", // an empty format will hide the module
+    "format-connected": " {num_connections}",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "exec ghostty --title=bluetui -e bluetui"
+  },
+  "cpu": {
+    "interval": 10,
+    "format": " {}%",
+    "max-length": 10,
+    "on-click": "exec ghostty --title=btop -e btop"
+  },
+  "custom/cpu-temp-average": {
+    "exec": "~/.config/waybar/custom_modules/cpu-temp-average.sh",
+    "interval": 5,
+    "return-type": "json",
+    "tooltip": true
+  },
+  "memory": {
+    "interval": 30,
+    "format": " {percentage}%",
+    "tooltip-format": "{used:0.1f}G/{total:0.1f}G used",
+    "on-click": "exec ghostty --title=htop -e htop"
+  },
+  "network": {
+    "format": "",
+    "format-wifi": "",
+    "format-ethernet": "",
+    "format-disconnected": "󰤭", //An empty format will hide the module.
+    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "󰖪",
+    "max-length": 50,
+    "on-click": "exec nmrs"
+  },
+  "clock": {
+    "format": "󰥔 {:%a, %d. %b %I:%M %p}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "format": {
+        "today": "<span color='#75f1fa'><b>{}</b></span>"
+      }
+    },
+    "on-click": "exec chromium --app=https://calendar.google.com"
+  },
+  "custom/language": {
+    "exec": "fcitx5-remote -n | sed 's/^keyboard-us$/EN/; s/^hangul$/한/'",
+    "interval": 1,
+    "tooltip": true,
+    "tooltip-format": "Input language — click to switch",
+    "on-click": "fcitx5-remote -t"
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-muted": "",
+    "max-volume": 135,
+    "format-icons": {
+      "default": ["", ""]
+    },
+    "scroll-step": 1,
+    "ignored-sinks": ["Easy Effects Sink"],
+    "on-click": "pavucontrol"
+  },
+  "group/media": {
+      "orientation": "horizontal",
+      "modules": [
+        "custom/media-animation",
+        "custom/media-now-playing",
+        "custom/media-time"
+      ]
+   },
+  "custom/media-now-playing": {
+      "exec": "~/.config/waybar/custom_modules/media/media-now-playing.sh",
+      "escape": true,
+      "max-length": 35,
+      "tooltip": false,
+      "on-click": "playerctl play-pause",
+      "on-click-middle": "playerctl previous",
+      "on-click-right": "playerctl next"
+   },
+   "custom/media-animation": {
+      "exec": "~/.config/waybar/custom_modules/media/media-animation.sh",
+      "tooltip": false
+   },
+   "custom/media-time": {
+      "exec": "~/.config/waybar/custom_modules/media/media-time.sh",
+      "escape": true,
+      "interval": 1,
+      "tooltip": false
+   }
+}

@@ -1,0 +1,132 @@
+@define-color highlight rgba(117, 241, 250, 1);
+@define-color dark-9 rgba(24, 24, 27, 1);
+@define-color dark-8 rgba(39, 39, 42, 1);
+@define-color dark-7 rgba(63, 63, 70, 1);
+@define-color dark-6 rgba(82, 82, 91, 1);
+@define-color dark-5 rgba(113, 113, 122, 1);
+
+* {
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 11px;
+}
+
+window#waybar {
+  background: transparent;
+  color: white;
+  min-height: 0;
+  margin: 10px 0;
+  border: 0;
+  box-shadow: none;
+}
+
+#modules-left,
+#modules-right {
+  margin: 0;
+  padding: 5px 2px;
+  background: @dark-8;
+  border: 1px solid rgba(63, 63, 70, 0.9);
+  border-radius: 11px;
+}
+
+#modules-center {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+#network,
+#custom-vertical-clock,
+#custom-idle-mode,
+#workspaces,
+#custom-hyprsunset,
+#custom-battery,
+#bluetooth,
+#pulseaudio,
+#memory,
+#cpu,
+#custom-cpu-temp-average,
+#custom-fan,
+#custom-language,
+#custom-notifications {
+  min-width: 36px;
+  padding: 4px 0;
+  margin: 1px 0;
+  background: transparent;
+  border-radius: 8px;
+}
+
+#network {
+  color: @highlight;
+  font-size: 15px;
+}
+
+#custom-vertical-clock {
+  color: #cdd6f4;
+  font-size: 10px;
+  font-weight: 700;
+  text-shadow: 0 0 5px rgba(117, 241, 250, 0.35);
+}
+
+#custom-idle-mode {
+  color: @highlight;
+  font-size: 10px;
+  font-weight: 700;
+  text-shadow: 0 0 5px rgba(117, 241, 250, 0.4);
+}
+
+#custom-idle-mode.never {
+  color: #f9e2af;
+  text-shadow: 0 0 5px rgba(249, 226, 175, 0.4);
+}
+
+#workspaces {
+  padding: 3px 0;
+}
+
+#workspaces button {
+  min-width: 34px;
+  min-height: 22px;
+  padding: 0 4px;
+  margin: 2px 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  color: white;
+}
+
+#workspaces button.active {
+  background: transparent;
+  border-bottom-color: @highlight;
+  color: @highlight;
+  font-weight: 700;
+  text-shadow: 0 0 6px rgba(117, 241, 250, 0.55);
+}
+
+#custom-hyprsunset {
+  color: @highlight;
+  text-shadow: 0 0 5px rgba(117, 241, 250, 0.45);
+}
+
+#custom-hyprsunset.unavailable {
+  color: @dark-5;
+  text-shadow: none;
+}
+
+#custom-notifications.muted {
+  color: #f9e2af;
+}
+
+#custom-fan,
+#custom-cpu-temp-average {
+  color: #cdd6f4;
+}
+
+tooltip {
+  background: @dark-9;
+  border-radius: 5px;
+}
+
+tooltip label {
+  color: white;
+}

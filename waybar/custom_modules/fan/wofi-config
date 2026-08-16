@@ -1,0 +1,9 @@
+width=300
+lines=5
+location=center
+show=dmenu
+prompt=Fan Level
+allow_markup=true
+hide_scroll=true
+dynamic_lines=true
+term=false

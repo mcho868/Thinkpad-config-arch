@@ -1,0 +1,29 @@
+xkb_keymap {
+    xkb_keycodes {
+        include "evdev+aliases(qwerty)"
+    };
+
+    xkb_types {
+        include "complete"
+
+        type "SUPER_LEVEL" {
+            modifiers = Mod4;
+            map[None] = Level1;
+            map[Mod4] = Level2;
+        };
+    };
+
+    xkb_compat {
+        include "complete"
+    };
+
+    xkb_symbols {
+        include "pc+us+inet(evdev)"
+
+        // Caps alone emits F24 for Fcitx. Super+Caps emits a real Caps Lock.
+        key <CAPS> {
+            type = "SUPER_LEVEL",
+            symbols[Group1] = [ F24, Caps_Lock ]
+        };
+    };
+};
